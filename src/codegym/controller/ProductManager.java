@@ -129,17 +129,19 @@ public class ProductManager extends ProductList implements ProductManagerActs {
         while (newPrice<0){
             System.out.print("Valid price, reEnter: ");
             newPrice=scn.nextInt();
+            if(newPrice>=0)break;
         }
+
         System.out.print("Enter new status:");
         int newStatus = scn.nextInt();
-        while (newStatus<1||newStatus>4){
+        while (newStatus<1 || newStatus>4){
             System.out.print("Valid status, reEnter: ");
-            newPrice=scn.nextInt();
+            newStatus=scn.nextInt();
+            if(newStatus>=1&&newStatus<=4)break;
         }
         System.out.println("Enter new description:");
         scn.nextLine();
         String newDescription= scn.nextLine();
-        System.out.println(newDescription);
         product.setName(newName);
         product.setPrice(newPrice);
         product.setStatus(newStatus);
