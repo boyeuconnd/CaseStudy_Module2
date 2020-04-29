@@ -4,8 +4,7 @@ import codegym.impl.ProductManagerActs;
 import codegym.model.Product;
 import codegym.storage.ProductList;
 
-import java.util.Iterator;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductManager extends ProductList implements ProductManagerActs {
     Scanner scn = new Scanner(System.in);
@@ -84,7 +83,31 @@ public class ProductManager extends ProductList implements ProductManagerActs {
     }
 
     @Override
-    public void sortProductList() {
+    public void sortProductList(boolean keyword) {
+        TreeMap<Integer,Product> sortList = new TreeMap<Integer,Product>();
+        for (Product element:productsList) {
+            sortList.put(element.getPrice(),element);
+        }
+        if(keyword){
+            Set<Integer> keys = sortList.keySet();
+            for (Integer key: keys){
+                System.out.println("ID: "+sortList.get(key).getId()+
+                        " Name: "+sortList.get(key).getName()+
+                        " Price: "+key+
+                        " Status: "+sortList.get(key).getStatus()+
+                        " Description: "+sortList.get(key).getDescription());
+            }
+        }else {
+            Set<Integer> keys = sortList.descendingMap().keySet();
+            for (Integer key: keys){
+                System.out.println("ID: "+sortList.get(key).getId()+
+                        " Name: "+sortList.get(key).getName()+
+                        " Price: "+key+
+                        " Status: "+sortList.get(key).getStatus()+
+                        " Description: "+sortList.get(key).getDescription());
+            }
+        }
+
 
     }
     private void ShowArray() {
@@ -101,10 +124,6 @@ public class ProductManager extends ProductList implements ProductManagerActs {
     private void EditProductStatic(Product product) {
         System.out.print("Enter new Name:");
         String newName = scn.nextLine();
-//        while (newName == null){
-//            System.out.print("Valid name, reEnter: ");
-//            newName = scn.nextLine();
-//        }
         System.out.print("Enter new price: ");
         int newPrice = scn.nextInt();
         while (newPrice<0){

@@ -1,10 +1,12 @@
 package codegym.impl;
 
 public interface ProductStatic {
-    final int NEW =1;
-    final int OLD_99 =2;
-    final int OLD_95 = 3;
-    final int UNLOAD = 4;
+     int NEW =1;
+     int OLD_99 =2;
+     int OLD_95 = 3;
+     int UNLOAD = 4;
+     boolean INCREASING =true;
+     boolean DECREASING = false;
     String getId();
 
     void setId(String id);

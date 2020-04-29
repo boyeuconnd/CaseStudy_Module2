@@ -6,5 +6,5 @@ public interface ProductManagerActs {
     boolean editProductStatic();
     boolean deleteProduct(String name);
     boolean findProduct(String name);
-    void sortProductList();
+    void sortProductList(boolean keyword);
 }

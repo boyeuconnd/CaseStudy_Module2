@@ -13,9 +13,7 @@ public class Main extends ProductManager {
         admin.addProduct("SS1","GalaxyS20",17900,NEW,"256G Storage");
         admin.addProduct("SS2","GalaxyNote10",20300,NEW,"256G Storage,S-pen");
         System.out.println("After add product:");
-        admin.showProductList();
-        admin.editProductStatic();
-        admin.showProductList();
+        admin.sortProductList(DECREASING);
 
 
 
