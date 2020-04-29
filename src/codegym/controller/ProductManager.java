@@ -36,8 +36,20 @@ public class ProductManager extends ProductList implements ProductManagerActs {
 
     @Override
     public boolean editProductStatic() {
+        System.out.print("Enter product ID you want to edit: ");
+        String code = scn.nextLine();
+        for (Product product:productsList) {
+            if(product.getId().equalsIgnoreCase(code)){
+                EditProductStatic(product);
+
+                return true;
+            }
+        }
+        System.out.println("Product ID: "+code+ " not found:");
         return false;
     }
+
+
 
     @Override
     public boolean deleteProduct(String name) {
@@ -85,6 +97,34 @@ public class ProductManager extends ProductList implements ProductManagerActs {
                     " Status: "+thisProduct.getStatus()+
                     " Description: "+thisProduct.getDescription());
         }
+    }
+    private void EditProductStatic(Product product) {
+        System.out.print("Enter new Name:");
+        String newName = scn.nextLine();
+//        while (newName == null){
+//            System.out.print("Valid name, reEnter: ");
+//            newName = scn.nextLine();
+//        }
+        System.out.print("Enter new price: ");
+        int newPrice = scn.nextInt();
+        while (newPrice<0){
+            System.out.print("Valid price, reEnter: ");
+            newPrice=scn.nextInt();
+        }
+        System.out.print("Enter new status:");
+        int newStatus = scn.nextInt();
+        while (newStatus<1||newStatus>4){
+            System.out.print("Valid status, reEnter: ");
+            newPrice=scn.nextInt();
+        }
+        System.out.println("Enter new description:");
+        scn.nextLine();
+        String newDescription= scn.nextLine();
+        System.out.println(newDescription);
+        product.setName(newName);
+        product.setPrice(newPrice);
+        product.setStatus(newStatus);
+        product.setDescription(newDescription);
     }
 //    private Product setNewProductStatic(String id, String name, int price) {
 //        Product addProduct = new Product(id,name,price){};
