@@ -206,6 +206,23 @@ public class ProductManager extends ProductList implements ProductManagerActs {
 
 
     }
+    public void Synchronization(){
+        String line;
+        String[] split;
+        try{
+            BufferedReader buffRead = new BufferedReader(new FileReader(productFile));
+            while ((line=buffRead.readLine())!=null){
+                split = line.split(",");
+                Product addProduct = new Product(split[0],split[1],Integer.parseInt(split[2]),Integer.parseInt(split[3]),split[4]) {};
+                productsList.add(addProduct);
+            }
+        }catch (FileNotFoundException e){
+            System.err.println("File not found");
+        }catch (IOException r){
+            r.printStackTrace();
+        }
+
+    }
     private void ShowArray() {
         Iterator<Product> iterator = productsList.iterator();
         while (iterator.hasNext()){

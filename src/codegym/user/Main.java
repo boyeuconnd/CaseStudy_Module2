@@ -10,6 +10,7 @@ public class Main extends ProductManager {
         Scanner scn = new Scanner(System.in);
         ProductManager admin = new ProductManager();
         int choice =-1;
+        admin.Synchronization();
 
         while (choice!=0){
             ShowMenu();
@@ -44,6 +45,10 @@ public class Main extends ProductManager {
                     admin.deleteProduct(deleteName);
                     break;
                 }
+                case 5:{
+                    admin.sortProductList(INCREASING);
+                    break;
+                }
 
             }
         }
@@ -61,6 +66,7 @@ public class Main extends ProductManager {
         System.out.println("2. Add product");
         System.out.println("3. Find product by name");
         System.out.println("4. Delete product by name");
+        System.out.println("5. Sort price by increase");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
     }
