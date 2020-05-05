@@ -1,5 +1,0 @@
-AP1,IphoneSE2,12600,1,128G Storage
-AP2,IphoneX,18600,1,256G Storage
-SS1,GalaxyS20,17900,1,256G Storage
-SS2,GalaxyNote10,20300,1,256G Storage and S-pen
-AP3,Iphone 11 ProMax,33000,1,256GB storage

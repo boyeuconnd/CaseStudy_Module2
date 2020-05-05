@@ -4,70 +4,34 @@ import codegym.impl.ProductManagerActs;
 import codegym.model.Product;
 import codegym.storage.ProductList;
 
-import java.io.*;
+
 import java.util.*;
 
 public class ProductManager extends ProductList implements ProductManagerActs {
     Scanner scn = new Scanner(System.in);
     @Override
     public void showProductList() {
-        String line;
-        String split[];
-        try{
-            BufferedReader buffRead = new BufferedReader(new FileReader(productFile));
-            while ((line = buffRead.readLine())!= null){
-                split = line.split(",");
-                ReaderFile(split);
 
-            }
-            buffRead.close();
-        }catch (FileNotFoundException e){
-            System.err.println("File not found, check file path:");
-        }catch (IOException r){
-            r.printStackTrace();
+
+        if(productsList.isEmpty()){
+            System.out.println("Product list is empty, please add products.");
+        }else {
+            ShowArray();
         }
-
-//        if(productsList.isEmpty()){
-//            System.out.println("Product list is empty, please add products.");
-//        }else {
-//            ShowArray();
-//        }
 
     }
 
 
     @Override
-    public void addProduct(String id,String name,int price,int status,String description) {
-        String line;
-        String split[];
-        Queue<String> tempQueue = new LinkedList<>();
-
-        try{
-            BufferedReader buffRead = new BufferedReader(new FileReader(productFile));
-            while ((line = buffRead.readLine())!= null){
-                split = line.split(",");
-                tempQueue.add(line);
-            }
-            buffRead.close();
-            BufferedWriter buffWrite = new BufferedWriter(new FileWriter(productFile));
-            while (!tempQueue.isEmpty()){
-                buffWrite.write(tempQueue.poll()+"\n");
-            }
-            buffWrite.write(id+","+name+","+price+","+status+","+description);
-            buffWrite.close();
-        }catch (FileNotFoundException e){
-            System.err.println("File not found, check file path:");
-        }catch (IOException r){
-            r.printStackTrace();
-        }
-//        boolean result =false;
-//        Product addProduct = new Product(id, name, price,status,description) {};
-//        productsList.add(addProduct);
-//        if(productsList.contains(addProduct)) {
-//            result = true;
-//            System.out.println("Product added");
-//        }else System.out.println("Product not added, try again!");
-//        return result;
+    public boolean addProduct(String id,String name,int price,int status,String description){
+        boolean result =false;
+        Product addProduct = new Product(id, name, price,status,description) {};
+        productsList.add(addProduct);
+        if(productsList.contains(addProduct)) {
+            result = true;
+            System.out.println("Product added");
+        }else System.out.println("Product not added, try again!");
+        return result;
     }
 
 
@@ -91,81 +55,34 @@ public class ProductManager extends ProductList implements ProductManagerActs {
 
     @Override
     public boolean deleteProduct(String name) {
-        String line;
-        String split[];
-        boolean result = false;
-        Queue<String> tempQueue = new LinkedList<>();
 
-        try{
-            BufferedReader buffRead = new BufferedReader(new FileReader(productFile));
-            while ((line = buffRead.readLine())!= null){
-                split = line.split(",");
-                if(name.equalsIgnoreCase( split[1])){
-                    System.out.println("Product deleted:");
-                    result= true;
-                    continue;
-                }else {
-                    tempQueue.add(line);
-                }
+        for (Product product:productsList) {
+            if(product.getName().equalsIgnoreCase(name)){
+                System.out.println("Product deleted.");
+                productsList.remove(product);
+                return true;
             }
-            buffRead.close();
-            BufferedWriter buffWrite = new BufferedWriter(new FileWriter(productFile));
-            while (!tempQueue.isEmpty()){
-                buffWrite.write(tempQueue.poll()+"\n");
-            }
-            buffWrite.close();
-        }catch (FileNotFoundException e){
-            System.err.println("File not found, check file path:");
-        }catch (IOException r){
-            r.printStackTrace();
-        }finally {
-            if(!result) System.out.println("Product "+name+" not found, try again.");
-            return result;
         }
-//        for (Product product:productsList) {
-//            if(product.getName().equalsIgnoreCase(name)){
-//                System.out.println("Product deleted.");
-//                productsList.remove(product);
-//                return true;
-//            }
-//        }
-//        System.out.println("Product "+name+" not found, try again.");
-//
-//        return false;
+        System.out.println("Product "+name+" not found, try again.");
+
+        return false;
     }
 
     @Override
     public boolean findProduct(String name) {
-        String line;
-        String[] split;
-        try{
-            BufferedReader buffRead = new BufferedReader(new FileReader(productFile));
-            while ((line = buffRead.readLine())!= null){
-                split = line.split(",");
-                if(name.equalsIgnoreCase( split[1])){
-                    System.out.println("Product found:");
-                    ReaderFile(split);
-                    return true;
-                }
+
+        for (Product product:productsList) {
+            if(product.getName().equalsIgnoreCase(name)){
+                System.out.println("Product found.");
+                System.out.println("ID: "+product.getId()+
+                        " Name: "+product.getName()+
+                        " Price: "+product.getPrice()+
+                        " Status: "+product.getStatus()+
+                        " Description: "+product.getDescription());
+                return true;
             }
-            buffRead.close();
-        }catch (FileNotFoundException e){
-            System.err.println("File not found, check file path:");
-        }catch (IOException r){
-            r.printStackTrace();
+
         }
-//        for (Product product:productsList) {
-//            if(product.getName().equalsIgnoreCase(name)){
-//                System.out.println("Product found.");
-//                System.out.println("ID: "+product.getId()+
-//                        " Name: "+product.getName()+
-//                        " Price: "+product.getPrice()+
-//                        " Status: "+product.getStatus()+
-//                        " Description: "+product.getDescription());
-//                return true;
-//            }
-//
-//        }
         System.out.println("Product "+name+" not found, try again.");
         return false;
     }
@@ -204,23 +121,6 @@ public class ProductManager extends ProductList implements ProductManagerActs {
             }
         }
 
-
-    }
-    public void Synchronization(){
-        String line;
-        String[] split;
-        try{
-            BufferedReader buffRead = new BufferedReader(new FileReader(productFile));
-            while ((line=buffRead.readLine())!=null){
-                split = line.split(",");
-                Product addProduct = new Product(split[0],split[1],Integer.parseInt(split[2]),Integer.parseInt(split[3]),split[4]) {};
-                productsList.add(addProduct);
-            }
-        }catch (FileNotFoundException e){
-            System.err.println("File not found");
-        }catch (IOException r){
-            r.printStackTrace();
-        }
 
     }
     private void ShowArray() {

@@ -1,8 +1,7 @@
 AP1,Iphone SE2,12600,1,128G Storage
-AP2,Iphone X,18600,1,256G StorageSS1
+AP2,Iphone X,18600,1,256G Storage
+SS1,Galaxy S20,17900,1,256G Storage
 SS2,Galaxy Note 10,20300,1,256G Storage and S-pen
 AP3,Iphone 11 Pro Max,33000,1,256GB storage
 XM1,Xiaomi Redmi Note8 Pro,5200,1,Warranty 12 months
 VS1,Vsmart Live,3800,1,6GB ram
-test,testphone,999,1,phonefortest
-test1,tesphone2,888,2,testNum2
