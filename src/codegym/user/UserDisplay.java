@@ -12,6 +12,14 @@ import static codegym.impl.ProductStatic.DECREASING;
 import static codegym.impl.ProductStatic.INCREASING;
 
 public class UserDisplay {
+    public static final int SHOW_PRODUCT_LIST = 1;
+    public static final int ADD_PRODUCT = 4;
+    public static final int FIND_PRODUCT = 2;
+    public static final int DELETE_PRODUCT = 5;
+    public static final int SORT_BY_PRICE = 3;
+    public static final int EDIT_PRODUCT = 6;
+    public static final int RETURN = 9;
+    public static final int EXIT = 0;
     static Scanner scn = new Scanner(System.in);
     static ProductManager admin = ProductManager.getInstance();
     static ProductList list = new ProductList();
@@ -32,11 +40,11 @@ public class UserDisplay {
                 }
                 choice = scn.nextInt();
                 switch (choice) {
-                    case 1: { //Show product list
+                    case SHOW_PRODUCT_LIST: { //Show product list
                         admin.showProductList();
                         break;
                     }
-                    case 4: {  //Add product
+                    case ADD_PRODUCT: {  //Add product
                         if(isAdmin){
                             System.out.println("Enter id,name,price,status,description space between any static");
                             scn.nextLine();
@@ -51,7 +59,7 @@ public class UserDisplay {
                         }
                         break;
                     }
-                    case 2: { //Find product
+                    case FIND_PRODUCT: { //Find product
                         System.out.print("Enter product name: ");
                         scn.nextLine();
                         String findName = scn.nextLine();
@@ -63,7 +71,7 @@ public class UserDisplay {
                         }
                         break;
                     }
-                    case 5: { //Delete method
+                    case DELETE_PRODUCT: { //Delete method
                         if(isAdmin){
                             System.out.print("Enter product name: ");
                             scn.nextLine();
@@ -79,7 +87,7 @@ public class UserDisplay {
                         }
                         break;
                     }
-                    case 3: { //Sort by price
+                    case SORT_BY_PRICE: { //Sort by price
                         System.out.println("Choose type of sort:");
                         System.out.println("1. Increasing");
                         System.out.println("2. Decreasing");
@@ -90,7 +98,7 @@ public class UserDisplay {
                         } else admin.sortProductList(DECREASING);
                         break;
                     }
-                    case 6: {  //Edit product static by ID
+                    case EDIT_PRODUCT: {  //Edit product static by ID
                         if(isAdmin){
                             System.out.print("Enter product ID you want to edit: ");
                             scn.nextLine();
@@ -106,11 +114,11 @@ public class UserDisplay {
                         }
                         break;
                     }
-                    case 9: { //Return
+                    case RETURN: { //Return
                         chooseAccount();
                         break;
                     }
-                    case 0: { //Synchronize and Log out
+                    case EXIT: { //Synchronize and Log out
                         System.out.println("Logging out...");
                         if(isAdmin){
                             sync.syncPush();
@@ -161,12 +169,12 @@ public class UserDisplay {
         System.out.print("Enter your choice: ");
     }
     private static void chooseAccount(){
+        PassWordField password = PassWordField.getInstance();
         showWelcome();
         accType = scn.nextInt();
         scn.nextLine();
         if(accType==1){
-            System.out.print("Enter password: ");
-            String uncheckPass = scn.nextLine();
+            String uncheckPass = password.enterPassword();
             if(!uncheckPass.equals(PassWordField.getInstance().getPASSWORD())){
                 System.out.println("Wrong password!!!");
                 chooseAccount();
