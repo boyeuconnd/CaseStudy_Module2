@@ -9,45 +9,46 @@ import java.util.*;
 
 public class ProductManager extends ProductList implements ProductManagerActs {
     Scanner scn = new Scanner(System.in);
+    private ProductManager(){}
+    private static ProductManager instance;
+    public synchronized static ProductManager getInstance(){
+        if(instance ==null){
+            instance = new ProductManager();
+        }
+        return instance;
+    }
     @Override
-    public void showProductList() {
-
-
+    public boolean showProductList() {
         if(productsList.isEmpty()){
-            System.out.println("Product list is empty, please add products.");
+            return false;
         }else {
             ShowArray();
         }
+        return true;
 
     }
 
 
     @Override
     public boolean addProduct(String id,String name,int price,int status,String description){
-        boolean result =false;
         Product addProduct = new Product(id, name, price,status,description) {};
         productsList.add(addProduct);
         if(productsList.contains(addProduct)) {
-            result = true;
-            System.out.println("Product added");
-        }else System.out.println("Product not added, try again!");
-        return result;
+            return true;
+        }
+        return false;
     }
 
 
 
     @Override
-    public boolean editProductStatic() {
-        System.out.print("Enter product ID you want to edit: ");
-        String code = scn.nextLine();
+    public boolean editProductStatic(String id) {
         for (Product product:productsList) {
-            if(product.getId().equalsIgnoreCase(code)){
+            if(product.getId().equalsIgnoreCase(id)){
                 EditProductStatic(product);
-
                 return true;
             }
         }
-        System.out.println("Product ID: "+code+ " not found:");
         return false;
     }
 
@@ -58,12 +59,10 @@ public class ProductManager extends ProductList implements ProductManagerActs {
 
         for (Product product:productsList) {
             if(product.getName().equalsIgnoreCase(name)){
-                System.out.println("Product deleted.");
                 productsList.remove(product);
                 return true;
             }
         }
-        System.out.println("Product "+name+" not found, try again.");
 
         return false;
     }
@@ -73,26 +72,11 @@ public class ProductManager extends ProductList implements ProductManagerActs {
 
         for (Product product:productsList) {
             if(product.getName().equalsIgnoreCase(name)){
-                System.out.println("Product found.");
-                System.out.println("ID: "+product.getId()+
-                        " Name: "+product.getName()+
-                        " Price: "+product.getPrice()+
-                        " Status: "+product.getStatus()+
-                        " Description: "+product.getDescription());
+                ShowElement(product);
                 return true;
             }
-
         }
-        System.out.println("Product "+name+" not found, try again.");
         return false;
-    }
-
-    private void ReaderFile(String[] split) {
-        System.out.println("ID: " + split[0] +
-                ", Name: " + split[1] +
-                ", Price: " + split[2] +
-                ", Status: " + split[3] +
-                ", Description: " + split[4]);
     }
 
     @Override
@@ -133,6 +117,14 @@ public class ProductManager extends ProductList implements ProductManagerActs {
                     " Status: "+thisProduct.getStatus()+
                     " Description: "+thisProduct.getDescription());
         }
+    }
+    private void ShowElement(Product product) {
+        System.out.println("Product found.");
+        System.out.println("ID: "+product.getId()+
+                " Name: "+product.getName()+
+                " Price: "+product.getPrice()+
+                " Status: "+product.getStatus()+
+                " Description: "+product.getDescription());
     }
     private void EditProductStatic(Product product) {
         System.out.print("Enter new Name:");

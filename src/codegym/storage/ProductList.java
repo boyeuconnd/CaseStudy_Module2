@@ -7,5 +7,23 @@ import java.util.ArrayList;
 
 public class ProductList extends Product  {
     public static ArrayList<Product> productsList = new ArrayList<Product>();
-    public File productFile = new File("D:\\CodeGym\\MiddleTest_M2\\src\\codegym\\storage\\productFile.txt");
+    public ProductList (){};
+//    private static ProductList instance;
+//    public static ProductList getInstance(){
+//        if(instance == null){
+//           instance= new ProductList();
+//        }
+//        return instance;
+//    }
+
+    public File getProductFile() {
+        return productFile;
+    }
+
+    public File getBack_up() {
+        return back_up;
+    }
+
+    private File productFile = new File("D:\\CodeGym\\MiddleTest_M2\\src\\codegym\\storage\\productFile.txt");
+    private File back_up = new File("D:\\CodeGym\\MiddleTest_M2\\src\\codegym\\storage\\back_up.txt");
 }
