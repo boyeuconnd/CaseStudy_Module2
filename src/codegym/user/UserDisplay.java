@@ -12,17 +12,17 @@ import static codegym.impl.ProductStatic.DECREASING;
 import static codegym.impl.ProductStatic.INCREASING;
 
 public class UserDisplay {
-    public static final int SHOW_PRODUCT_LIST = 1;
-    public static final int ADD_PRODUCT = 4;
-    public static final int FIND_PRODUCT = 2;
-    public static final int DELETE_PRODUCT = 5;
-    public static final int SORT_BY_PRICE = 3;
-    public static final int EDIT_PRODUCT = 6;
-    public static final int RETURN = 9;
-    public static final int EXIT = 0;
+    private static final int SHOW_PRODUCT_LIST = 1;
+    private static final int ADD_PRODUCT = 4;
+    private static final int FIND_PRODUCT = 2;
+    private static final int DELETE_PRODUCT = 5;
+    private static final int SORT_BY_PRICE = 3;
+    private static final int EDIT_PRODUCT = 6;
+    private static final int RETURN = 9;
+    private static final int EXIT = 0;
     static Scanner scn = new Scanner(System.in);
-    static ProductManager admin = ProductManager.getInstance();
-    static ProductList list = new ProductList();
+    static ProductManager productManager = ProductManager.getInstance();
+    static ProductList list = ProductList.getInstance();
     static int accType =-1;
     public static void start() {
 
@@ -41,7 +41,7 @@ public class UserDisplay {
                 choice = scn.nextInt();
                 switch (choice) {
                     case SHOW_PRODUCT_LIST: { //Show product list
-                        admin.showProductList();
+                        productManager.showProductList();
                         break;
                     }
                     case ADD_PRODUCT: {  //Add product
@@ -53,7 +53,7 @@ public class UserDisplay {
                             int price = Integer.parseInt(scn.next());
                             int status = Integer.parseInt(scn.next());
                             String description = scn.next();
-                            admin.addProduct(id, name, price, status, description);
+                            productManager.addProduct(id, name, price, status, description);
                         }else {
                             System.out.println("Valid choose!");
                         }
@@ -63,7 +63,7 @@ public class UserDisplay {
                         System.out.print("Enter product name: ");
                         scn.nextLine();
                         String findName = scn.nextLine();
-                        boolean result = admin.findProduct(findName);
+                        boolean result = productManager.findProduct(findName);
                         if(result){
 
                         }else {
@@ -76,7 +76,7 @@ public class UserDisplay {
                             System.out.print("Enter product name: ");
                             scn.nextLine();
                             String deleteName = scn.nextLine();
-                            boolean result = admin.deleteProduct(deleteName);
+                            boolean result = productManager.deleteProduct(deleteName);
                             if(result){
                                 System.out.println("Product deleted.");
                             }else {
@@ -94,8 +94,8 @@ public class UserDisplay {
                         scn.nextLine();
                         int choosen = scn.nextInt();
                         if (choosen == 1) {
-                            admin.sortProductList(INCREASING);
-                        } else admin.sortProductList(DECREASING);
+                            productManager.sortProductList(INCREASING);
+                        } else productManager.sortProductList(DECREASING);
                         break;
                     }
                     case EDIT_PRODUCT: {  //Edit product static by ID
@@ -103,7 +103,7 @@ public class UserDisplay {
                             System.out.print("Enter product ID you want to edit: ");
                             scn.nextLine();
                             String editId = scn.nextLine();
-                            boolean result = admin.editProductStatic(editId);
+                            boolean result = productManager.editProductStatic(editId);
                             if(result){
                                 System.out.println("Product ID: "+editId+" had edited.");
                             }else {
@@ -133,8 +133,11 @@ public class UserDisplay {
                 }
             }
         } catch (InputMismatchException e) {
-            System.err.println("Giá trị nhập vào là chữ:");
+            System.err.println("Enter values is words:");
             start();
+        } catch (NumberFormatException nfe) {
+            System.err.println("Enter numbers instead of words:");
+
         }
 
     }

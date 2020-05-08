@@ -14,5 +14,4 @@
 33074,iPhone 8 Plus 128GB,15990000,1,https://fptshop.com.vn/dien-thoai/iphone-8-plus-128gb
 8724,iPhone 7 32GB,7990000,1,https://fptshop.com.vn/dien-thoai/iphone-7
 19935,iPhone 6s Plus 32GB,8990000,1,https://fptshop.com.vn/dien-thoai/iphone-6s-plus-32gb
-9043,testName,9999,2,Test Description
 32675,iPhone SE (2020) 64GB,12990000,1,https://fptshop.com.vn/dien-thoai/iphone-se-2

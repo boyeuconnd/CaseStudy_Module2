@@ -20,15 +20,13 @@ public class PassWordField {
         }
         return instance;
     }
-    public void enterPassword(){
-//        Scanner scn = new Scanner(System.in);
-//        System.out.println("Enter password: ");
-//        String pass = scn.nextLine();
-//        System.out.println("Password is: " + pass);
+    public String enterPassword(){
         Console console = System.console();
         char[] passwordArray = console.readPassword("Enter password: ");
         String password = new String(passwordArray);
-        System.out.println(password);
+        return password;
+
+
     }
 
 }

@@ -4,8 +4,11 @@ import codegym.model.Product;
 import codegym.storage.ProductList;
 
 import java.io.*;
+import java.util.ArrayList;
 
-public class Synchronizer extends ProductList {
+public class Synchronizer{
+    ProductList listManager = ProductList.getInstance();
+    ArrayList<Product> productsList = listManager.productsList;
     public void syncPull(File syncFile){
         String line;
         String[] split;
@@ -19,7 +22,7 @@ public class Synchronizer extends ProductList {
             buffRead.close();
         }catch (FileNotFoundException e){
             System.err.println("Repo not found, starting sync from back_up repo");
-            syncPull(super.getBack_up());
+            syncPull(listManager.getBack_up());
 
         }catch (IOException r){
             r.printStackTrace();
@@ -28,7 +31,7 @@ public class Synchronizer extends ProductList {
     }
     public void syncPush(){
         try{
-            BufferedWriter buffWrite = new BufferedWriter(new FileWriter(super.getProductFile()));
+            BufferedWriter buffWrite = new BufferedWriter(new FileWriter(listManager.getProductFile()));
             for (Product element:productsList ) {
                 buffWrite.write(element.getId()+","
                         +element.getName()+","

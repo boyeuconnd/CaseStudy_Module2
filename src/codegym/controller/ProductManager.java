@@ -7,10 +7,13 @@ import codegym.storage.ProductList;
 
 import java.util.*;
 
-public class ProductManager extends ProductList implements ProductManagerActs {
+public class ProductManager implements ProductManagerActs {
     Scanner scn = new Scanner(System.in);
-    private ProductManager(){}
-    private static ProductManager instance;
+    ProductList listInstance = ProductList.getInstance();
+    ArrayList<Product> productsList = listInstance.productsList;
+    private ProductManager(){
+    }
+    private static volatile ProductManager instance;
     public synchronized static ProductManager getInstance(){
         if(instance ==null){
             instance = new ProductManager();
@@ -19,6 +22,7 @@ public class ProductManager extends ProductList implements ProductManagerActs {
     }
     @Override
     public boolean showProductList() {
+
         if(productsList.isEmpty()){
             return false;
         }else {
@@ -43,7 +47,7 @@ public class ProductManager extends ProductList implements ProductManagerActs {
 
     @Override
     public boolean editProductStatic(String id) {
-        for (Product product:productsList) {
+        for (Product product: productsList) {
             if(product.getId().equalsIgnoreCase(id)){
                 EditProductStatic(product);
                 return true;
@@ -57,7 +61,7 @@ public class ProductManager extends ProductList implements ProductManagerActs {
     @Override
     public boolean deleteProduct(String name) {
 
-        for (Product product:productsList) {
+        for (Product product: productsList) {
             if(product.getName().equalsIgnoreCase(name)){
                 productsList.remove(product);
                 return true;
@@ -70,7 +74,7 @@ public class ProductManager extends ProductList implements ProductManagerActs {
     @Override
     public boolean findProduct(String name) {
 
-        for (Product product:productsList) {
+        for (Product product: productsList) {
             if(product.getName().equalsIgnoreCase(name)){
                 ShowElement(product);
                 return true;
@@ -82,7 +86,7 @@ public class ProductManager extends ProductList implements ProductManagerActs {
     @Override
     public void sortProductList(boolean keyword) {
         TreeMap<Integer,Product> sortList = new TreeMap<Integer,Product>();
-        for (Product element:productsList) {
+        for (Product element: productsList) {
             sortList.put(element.getPrice(),element);
         }
         if(keyword){

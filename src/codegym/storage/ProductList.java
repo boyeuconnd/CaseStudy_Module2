@@ -6,15 +6,15 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class ProductList extends Product  {
-    public static ArrayList<Product> productsList = new ArrayList<Product>();
-    public ProductList (){};
-//    private static ProductList instance;
-//    public static ProductList getInstance(){
-//        if(instance == null){
-//           instance= new ProductList();
-//        }
-//        return instance;
-//    }
+    public  ArrayList<Product> productsList = new ArrayList<Product>();
+    private ProductList (){};
+    private static volatile ProductList instance;
+    public synchronized static ProductList getInstance(){
+        if(instance == null){
+           instance= new ProductList();
+        }
+        return instance;
+    }
 
     public File getProductFile() {
         return productFile;
