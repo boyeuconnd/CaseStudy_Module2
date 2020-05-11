@@ -1,7 +1,19 @@
-AP1,Iphone SE2,12600,1,128G Storage
-AP2,Iphone X,18600,1,256G Storage
-SS1,Galaxy S20,17900,1,256G Storage
-SS2,Galaxy Note 10,20300,1,256G Storage and S-pen
-AP3,Iphone 11 Pro Max,33000,1,256GB storage
-XM1,Xiaomi Redmi Note8 Pro,5200,1,Warranty 12 months
-VS1,Vsmart Live,3800,1,6GB ram
+28997,iPhone 11 Pro Max 64GB,29990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-max-64gb
+28998,iPhone 11 Pro Max 256GB,35990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-max-256gb
+28999,iPhone 11 Pro Max 512GB,43990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-max-512gb
+28994,iPhone 11 Pro 64GB,27990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-64gb
+28995,iPhone 11 Pro 256GB,34190000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-256gb
+28996,iPhone 11 Pro 512GB,40990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-512gb
+28991,iPhone 11 64GB,19990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-64gb
+28992,iPhone 11 128GB,23690000,1,https://fptshop.com.vn/dien-thoai/iphone-11-128gb
+28993,iPhone 11 256GB,25690000,1,https://fptshop.com.vn/dien-thoai/iphone-11-256gb
+25219,iPhone Xs Max 64GB,26990000,1,https://fptshop.com.vn/dien-thoai/iphone-xs-max-64gb
+25220,iPhone Xs Max 256GB,32990000,1,https://fptshop.com.vn/dien-thoai/iphone-xs-max-256gb
+25221,iPhone XR 64GB,16990000,1,https://fptshop.com.vn/dien-thoai/iphone-xr-64gb
+22037,iPhone 8 Plus 64GB,15990000,1,https://fptshop.com.vn/dien-thoai/iphone-8-plus-64gb
+33074,iPhone 8 Plus 128GB,15990000,1,https://fptshop.com.vn/dien-thoai/iphone-8-plus-128gb
+10051,iPhone 7 Plus 32GB,12990000,1,https://fptshop.com.vn/dien-thoai/iphone-7-plus
+8724,iPhone 7 32GB,7990000,1,https://fptshop.com.vn/dien-thoai/iphone-7
+19935,iPhone 6s Plus 32GB,8990000,1,https://fptshop.com.vn/dien-thoai/iphone-6s-plus-32gb
+9043,iPhone 6s Plus 128GB,9490000,1,https://fptshop.com.vn/dien-thoai/iphone-6s-plus-128gb
+32675,iPhone SE (2020) 64GB,12990000,1,https://fptshop.com.vn/dien-thoai/iphone-se-2

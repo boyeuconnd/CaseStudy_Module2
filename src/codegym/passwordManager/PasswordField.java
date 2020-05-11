@@ -1,22 +1,19 @@
 package codegym.passwordManager;
 
 import java.io.Console;
-import java.io.Reader;
-import java.util.Objects;
-import java.util.Scanner;
 
-public class PassWordField {
+public class PasswordField {
     public String getPASSWORD() {
         return PASSWORD;
     }
 
     private final String PASSWORD = "123456";
-    private PassWordField() {
+    private PasswordField() {
     }
-    private static PassWordField instance;
-    public synchronized static PassWordField getInstance(){
+    private static PasswordField instance;
+    public synchronized static PasswordField getInstance(){
         if(instance == null){
-            instance = new PassWordField();
+            instance = new PasswordField();
         }
         return instance;
     }

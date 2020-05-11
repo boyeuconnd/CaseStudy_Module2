@@ -6,9 +6,9 @@ import codegym.storage.ProductList;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Synchronizer{
+public class Synchronize{
     ProductList listManager = ProductList.getInstance();
-    ArrayList<Product> productsList = listManager.productsList;
+    ArrayList<Product> productsList = listManager.getArrayList();
     public void syncPull(File syncFile){
         String line;
         String[] split;
@@ -29,9 +29,25 @@ public class Synchronizer{
         }
 
     }
-    public void syncPush(){
+    public void syncPush() {
         try{
-            BufferedWriter buffWrite = new BufferedWriter(new FileWriter(listManager.getProductFile()));
+            Runnable syncBackup = new Thread_Push_Backup();
+            Runnable syncRepo = new Thread_Push_Repo();
+            Thread threadPushBackup = new Thread(syncBackup);
+            Thread threadPushRepo = new Thread(syncRepo);
+            threadPushBackup.start();
+            threadPushRepo.start();
+            threadPushRepo.join();
+            threadPushBackup.join();
+
+        }catch (InterruptedException ie){
+            ie.printStackTrace();
+        }
+
+    }
+    protected void sync_Push(File source) {
+        try{
+            BufferedWriter buffWrite = new BufferedWriter(new FileWriter(source));
             for (Product element:productsList ) {
                 buffWrite.write(element.getId()+","
                         +element.getName()+","
@@ -46,4 +62,6 @@ public class Synchronizer{
             e.printStackTrace();
         }
     }
+
+
 }

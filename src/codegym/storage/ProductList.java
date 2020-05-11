@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class ProductList extends Product  {
-    public  ArrayList<Product> productsList = new ArrayList<Product>();
+    private   ArrayList<Product> productsList = new ArrayList<>();
     private ProductList (){};
     private static volatile ProductList instance;
     public synchronized static ProductList getInstance(){
@@ -15,7 +15,9 @@ public class ProductList extends Product  {
         }
         return instance;
     }
-
+    public ArrayList<Product> getArrayList() {
+        return productsList;
+    }
     public File getProductFile() {
         return productFile;
     }

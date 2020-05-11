@@ -10,7 +10,7 @@ import java.util.*;
 public class ProductManager implements ProductManagerActs {
     Scanner scn = new Scanner(System.in);
     ProductList listInstance = ProductList.getInstance();
-    ArrayList<Product> productsList = listInstance.productsList;
+    ArrayList<Product> productsList = listInstance.getArrayList();
     private ProductManager(){
     }
     private static volatile ProductManager instance;

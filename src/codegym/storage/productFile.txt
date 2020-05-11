@@ -12,6 +12,8 @@
 25221,iPhone XR 64GB,16990000,1,https://fptshop.com.vn/dien-thoai/iphone-xr-64gb
 22037,iPhone 8 Plus 64GB,15990000,1,https://fptshop.com.vn/dien-thoai/iphone-8-plus-64gb
 33074,iPhone 8 Plus 128GB,15990000,1,https://fptshop.com.vn/dien-thoai/iphone-8-plus-128gb
+10051,iPhone 7 Plus 32GB,12990000,1,https://fptshop.com.vn/dien-thoai/iphone-7-plus
 8724,iPhone 7 32GB,7990000,1,https://fptshop.com.vn/dien-thoai/iphone-7
 19935,iPhone 6s Plus 32GB,8990000,1,https://fptshop.com.vn/dien-thoai/iphone-6s-plus-32gb
+9043,iPhone 6s Plus 128GB,9490000,1,https://fptshop.com.vn/dien-thoai/iphone-6s-plus-128gb
 32675,iPhone SE (2020) 64GB,12990000,1,https://fptshop.com.vn/dien-thoai/iphone-se-2

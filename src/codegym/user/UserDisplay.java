@@ -1,9 +1,9 @@
 package codegym.user;
 
 import codegym.controller.ProductManager;
-import codegym.passwordManager.PassWordField;
+import codegym.passwordManager.PasswordField;
 import codegym.storage.ProductList;
-import codegym.synchronization.Synchronizer;
+import codegym.synchronization.Synchronize;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -27,10 +27,11 @@ public class UserDisplay {
     public static void start() {
 
         int choice = -1;
-        Synchronizer sync = new Synchronizer();
+        Synchronize sync = new Synchronize();
         sync.syncPull(list.getProductFile());
         try {
-            chooseAccount();
+//            chooseAccount();
+            accType=1;
             while (choice != 0) {
                 boolean isAdmin = accType == 1;
                 if(isAdmin){
@@ -41,7 +42,9 @@ public class UserDisplay {
                 choice = scn.nextInt();
                 switch (choice) {
                     case SHOW_PRODUCT_LIST: { //Show product list
-                        productManager.showProductList();
+                        if(!productManager.showProductList()){
+                            System.out.println("List empty.");
+                        }
                         break;
                     }
                     case ADD_PRODUCT: {  //Add product
@@ -121,7 +124,7 @@ public class UserDisplay {
                     case EXIT: { //Synchronize and Log out
                         System.out.println("Logging out...");
                         if(isAdmin){
-                            sync.syncPush();
+                           sync.syncPush();
                         }
                         System.exit(-1);
                         break;
@@ -172,13 +175,13 @@ public class UserDisplay {
         System.out.print("Enter your choice: ");
     }
     private static void chooseAccount(){
-        PassWordField password = PassWordField.getInstance();
+        PasswordField password = PasswordField.getInstance();
         showWelcome();
         accType = scn.nextInt();
         scn.nextLine();
         if(accType==1){
             String uncheckPass = password.enterPassword();
-            if(!uncheckPass.equals(PassWordField.getInstance().getPASSWORD())){
+            if(!uncheckPass.equals(PasswordField.getInstance().getPASSWORD())){
                 System.out.println("Wrong password!!!");
                 chooseAccount();
             }
