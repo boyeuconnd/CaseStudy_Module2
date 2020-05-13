@@ -25,7 +25,11 @@ public class Crawl_Phone implements I_Crawl {
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(content);
             while (matcher.find()){
-                matcherString.add(matcher.group(2)+","+matcher.group(1)+","+matcher.group(3)+",1,https://fptshop.com.vn"+matcher.group(5));
+                if(matcher.group(3).equals("0")){
+                    continue;
+                }else {
+                    matcherString.add(matcher.group(2)+","+matcher.group(1)+","+matcher.group(3)+",1,https://fptshop.com.vn"+matcher.group(5));
+                }
             }
 
 //            ExportToFile(productCrawl, matcherQueue);
@@ -42,10 +46,16 @@ public class Crawl_Phone implements I_Crawl {
         try{
             Iphone iphone = new Iphone();
             Samsung samsung = new Samsung();
+            Xiaomi xiaomi = new Xiaomi();
+            Oppo oppo = new Oppo();
             iphone.threadIphone.start();
             iphone.threadIphone.join();
             samsung.threadSamsung.start();
             samsung.threadSamsung.join();
+            xiaomi.threadXiaomi.start();
+            xiaomi.threadXiaomi.join();
+            oppo.threadOppo.start();
+            oppo.threadOppo.join();
             ExportToFile(productCrawl,matcherString);
         }catch (InterruptedException ie){
             ie.printStackTrace();

@@ -7,6 +7,6 @@ public class Iphone extends Crawl_Phone implements Runnable {
 
     @Override
     public void run() {
-        this.crawl_Product(FPT_SHOP_IPHONE,IPHONE_REGEX);
+        this.crawl_Product(FPT_IPHONE, NORMAL_REGEX);
     }
 }

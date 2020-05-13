@@ -6,6 +6,7 @@ public class Samsung extends Crawl_Phone implements Runnable {
     Thread threadSamsung = new Thread(this::run);
     @Override
     public void run() {
-        this.crawl_Product(FPT_SHOP_SAMSUNG,SAMSUNG_REGEX);
+        this.crawl_Product(FPT_SAMSUNG_1,SAMSUNG_REGEX);
+        this.crawl_Product(FPT_SAMSUNG_2,SAMSUNG_REGEX);
     }
 }

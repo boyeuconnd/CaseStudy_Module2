@@ -112,7 +112,7 @@ public class ProductManager implements ProductManagerActs {
         }
     }
     private void PrintArray(Product product){
-        System.out.printf("ID: %-5s |Name: %-24s |Price: %-9d |Status: %d |Description: %s \n",
+        System.out.printf("ID: %-5s |Name: %-32s |Price: %-9d |Status: %d |Description: %s \n",
                 product.getId(),
                 product.getName(),
                 product.getPrice(),
