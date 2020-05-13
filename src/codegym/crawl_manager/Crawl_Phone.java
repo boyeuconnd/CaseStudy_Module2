@@ -1,5 +1,8 @@
 package codegym.crawl_manager;
 
+import codegym.model.Product;
+import codegym.storage.ProductList;
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.util.LinkedList;
@@ -9,17 +12,13 @@ import java.util.regex.Pattern;
 
 public class Crawl_Phone implements I_Crawl {
     public Crawl_Phone(){};
-//    public synchronized static Crawl_Phone getInstance(){
-//        if(instance==null){
-//            instance = new Crawl_Phone();
-//        }
-//        return instance;
-//    }
-//    private static Crawl_Phone instance;
-    private File productCrawl = new File("D:\\CodeGym\\MiddleTest_M2\\src\\codegym\\storage\\Crawl.txt");
-    public static Queue<String> matcherString = new LinkedList<>();
+    ProductList productList = ProductList.getInstance();
+
+    private File productCrawl = productList.getProductFile();
+
+    protected static Queue<String> matcherString = new LinkedList<>();
     @Override
-    public synchronized void crawl_Product(String source,String regex) {
+    public synchronized void crawl_Product(String source, String regex) {
         try {
             String content = GetContent.urlGetContent(source);
             Pattern pattern = Pattern.compile(regex);
@@ -32,8 +31,6 @@ public class Crawl_Phone implements I_Crawl {
                 }
             }
 
-//            ExportToFile(productCrawl, matcherQueue);
-
         }catch (FileNotFoundException f){
             System.err.println("Find not found at Crawl_Phone");
         }catch(MalformedURLException m){
@@ -43,26 +40,31 @@ public class Crawl_Phone implements I_Crawl {
         }
     }
     public void startThread(){
-        try{
-            Iphone iphone = new Iphone();
-            Samsung samsung = new Samsung();
-            Xiaomi xiaomi = new Xiaomi();
-            Oppo oppo = new Oppo();
-            iphone.threadIphone.start();
-            iphone.threadIphone.join();
-            samsung.threadSamsung.start();
-            samsung.threadSamsung.join();
-            xiaomi.threadXiaomi.start();
-            xiaomi.threadXiaomi.join();
-            oppo.threadOppo.start();
-            oppo.threadOppo.join();
+        Thread iphone = new Iphone().threadIphone;
+        Thread samsung = new Samsung().threadSamsung;
+        Thread xiaomi = new Xiaomi().threadXiaomi;
+        Thread oppo = new Oppo().threadOppo;
+//        final boolean isAllThreadsDead = samsung.getState() == Thread.State.TERMINATED
+//                && iphone.getState() == Thread.State.TERMINATED
+//                && xiaomi.getState() == Thread.State.TERMINATED
+//                && oppo.getState() == Thread.State.TERMINATED;
+        try {
+            iphone.start();
+            iphone.join();
+            samsung.start();
+            samsung.join();
+            xiaomi.start();
+            xiaomi.join();
+            oppo.start();
+            oppo.join();
             ExportToFile(productCrawl,matcherString);
-        }catch (InterruptedException ie){
-            ie.printStackTrace();
+        }catch (InterruptedException e){
+            e.printStackTrace();
         }
+
     }
 
-    public synchronized void ExportToFile(File source,Queue<String> queue){
+    private void ExportToFile(File source,Queue<String> queue){
         try{
             BufferedWriter buffWrite = new BufferedWriter(new FileWriter(source));
             while  (!queue.isEmpty()) {
@@ -70,10 +72,11 @@ public class Crawl_Phone implements I_Crawl {
                 buffWrite.write(line+"\n");
                 buffWrite.flush();
             }
+            buffWrite.close();
         }catch (IOException ioe){
             ioe.printStackTrace();
         }
 
-//        buffWrite.close();
+
     }
 }

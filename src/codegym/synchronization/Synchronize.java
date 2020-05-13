@@ -29,7 +29,7 @@ public class Synchronize{
         }
 
     }
-    public void syncPush() {
+    public void syncPushCommand() {
         try{
             Runnable syncBackup = new Thread_Push_Backup();
             Runnable syncRepo = new Thread_Push_Repo();
@@ -45,7 +45,7 @@ public class Synchronize{
         }
 
     }
-    protected void sync_Push(File source) {
+    protected void sync_Push_Thread(File source) {
         try{
             BufferedWriter buffWrite = new BufferedWriter(new FileWriter(source));
             for (Product element:productsList ) {

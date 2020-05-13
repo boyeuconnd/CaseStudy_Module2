@@ -1,5 +1,7 @@
 package codegym.crawl_manager;
 
+import java.util.Queue;
+
 public interface I_Crawl {
     String FPT_IPHONE = "https://fptshop.com.vn/dien-thoai/apple-iphone";
     String FPT_SAMSUNG_1 = "https://fptshop.com.vn/dien-thoai/samsung?sort=gia-cao-den-thap";
@@ -9,5 +11,5 @@ public interface I_Crawl {
 
     String NORMAL_REGEX = "'Home','(.*)',(.*?),(.*?),0000,(.*)href=\"(.*)\" title=";
     String SAMSUNG_REGEX = "'Home','(S.*)',(.*?),(.*?),0000,(.*)href=\"(.*)\" title=";
-    void crawl_Product(String link,String regex);
+    void crawl_Product(String link, String regex);
 }

@@ -1,6 +1,8 @@
 package codegym.app_menu;
 
+import codegym.controller.CrawlerFacade;
 import codegym.controller.ProductManager;
+import codegym.crawl_manager.Crawl_Phone;
 import codegym.passwordManager.PasswordField;
 import codegym.storage.ProductList;
 import codegym.synchronization.Synchronize;
@@ -109,6 +111,14 @@ public class MenuManager {
                         }
                         break;
                     }
+                    case MenuChoose.CRAWLER:{
+                        if(isAdmin){
+                            System.out.println("Crawling...");
+                            CrawlerFacade crawlerFacade = CrawlerFacade.getInstance();
+                            crawlerFacade.startCrawler();
+                        }
+                        break;
+                    }
                     case MenuChoose.RETURN: {
                         chooseAccount();
                         break;
@@ -116,7 +126,7 @@ public class MenuManager {
                     case MenuChoose.EXIT: {
                         System.out.println("Logging out...");
                         if(isAdmin){
-                           sync.syncPush();
+                           sync.syncPushCommand();
                         }
                         System.exit(-1);
                         break;
@@ -145,6 +155,7 @@ public class MenuManager {
         System.out.println("4. Add product");
         System.out.println("5. Delete product by name");
         System.out.println("6. Edit product static");
+        System.out.println("7. Crawler");
         System.out.println("9. Return");
         System.out.println("0. Synchronize and Exit");
         System.out.print("Enter your choice: ");

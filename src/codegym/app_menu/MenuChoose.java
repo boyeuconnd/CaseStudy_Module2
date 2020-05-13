@@ -9,5 +9,6 @@ public class MenuChoose {
     static final int EDIT_PRODUCT = 6;
     static final int RETURN = 9;
     static final int EXIT = 0;
+    static final int CRAWLER = 7;
 
 }
