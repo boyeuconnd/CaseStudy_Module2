@@ -80,8 +80,8 @@
 33312,Oppo A31 6GB-128GB,5290000,1,https://fptshop.com.vn/dien-thoai/oppo-a31-6gb-128gb
 29541,Oppo A5 2020 4GB-128GB,4790000,1,https://fptshop.com.vn/dien-thoai/oppo-a5-2020-4gb-128gb
 33101,Oppo A31 4GB-128GB,4490000,1,https://fptshop.com.vn/dien-thoai/oppo-a31-4gb-128gb
-29114,Oppo A5 2020 3GB-64GB,3690000,1,https://fptshop.com.vn/dien-thoai/oppo-a5-2020
 34311,Oppo A12 4GB-64GB,3690000,1,https://fptshop.com.vn/dien-thoai/oppo-a12-64gb
+29114,Oppo A5 2020 3GB-64GB,3690000,1,https://fptshop.com.vn/dien-thoai/oppo-a5-2020
 27976,OPPO A5s,3290000,1,https://fptshop.com.vn/dien-thoai/oppo-a5s
 34129,Oppo A12 3GB-32GB,3290000,1,https://fptshop.com.vn/dien-thoai/oppo-a12
 28070,OPPO A1k,2690000,1,https://fptshop.com.vn/dien-thoai/oppo-a1k

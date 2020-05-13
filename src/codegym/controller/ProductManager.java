@@ -1,5 +1,6 @@
 package codegym.controller;
 
+import codegym.controller.impl.I_Filter;
 import codegym.controller.impl.ProductManagerActs;
 import codegym.model.Product;
 import codegym.storage.ProductList;
@@ -7,7 +8,7 @@ import codegym.storage.ProductList;
 
 import java.util.*;
 
-public class ProductManager implements ProductManagerActs {
+public class ProductManager implements ProductManagerActs, I_Filter {
     Scanner scn = new Scanner(System.in);
     ProductList listInstance = ProductList.getInstance();
     ArrayList<Product> productsList = listInstance.getArrayList();
@@ -151,4 +152,30 @@ public class ProductManager implements ProductManagerActs {
         product.setDescription(newDescription);
     }
 
+    @Override
+    public boolean filterByPrice(int min, int max) {
+        NavigableMap<Integer,Product> sortList = new TreeMap<Integer,Product>();
+        for (Product element: productsList) {
+            sortList.put(element.getPrice(),element);
+        }
+        if(min>=max){
+            return false;
+        }else if(min<0||max<0){
+            return false;
+        }else {
+            NavigableMap<Integer,Product> subList = sortList.subMap(min,true,max,true);
+            if(subList.size()==0)return false;
+            else {
+                Set<Integer> tempSet = subList.keySet();
+                for (Integer key:tempSet) {
+                    PrintArray(sortList.get(key));
+                }
+//                for (int i =0;i<subList.size();i++){
+//                    Product product = subList.get(i);
+//                    PrintArray(product);
+//                }
+                return true;
+            }
+        }
+    }
 }

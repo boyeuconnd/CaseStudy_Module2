@@ -25,6 +25,7 @@ public class MenuManager {
         sync.syncPull(list.getProductFile());
         try {
             chooseAccount();
+//            accType=1;
             while (choice != 0) {
                 boolean isAdmin = accType == 1;
                 if(isAdmin){
@@ -113,10 +114,20 @@ public class MenuManager {
                     }
                     case MenuChoose.CRAWLER:{
                         if(isAdmin){
-                            System.out.println("Crawling...");
+                            System.out.println("Crawled, please reset the app");
                             CrawlerFacade crawlerFacade = CrawlerFacade.getInstance();
                             crawlerFacade.startCrawler();
+                            System.exit(-1);
                         }
+                        break;
+                    }
+                    case MenuChoose.FILTER_PRICE:{
+                        System.out.print("Enter min price:");
+                        int min = scn.nextInt();
+                        System.out.print("Enter max price:");
+                        int max = scn.nextInt();
+                        boolean result = productManager.filterByPrice(min,max);
+                        if(!result) System.out.println("Valid price");
                         break;
                     }
                     case MenuChoose.RETURN: {
@@ -156,6 +167,7 @@ public class MenuManager {
         System.out.println("5. Delete product by name");
         System.out.println("6. Edit product static");
         System.out.println("7. Crawler");
+        System.out.println("8. Filter by price");
         System.out.println("9. Return");
         System.out.println("0. Synchronize and Exit");
         System.out.print("Enter your choice: ");
@@ -166,6 +178,7 @@ public class MenuManager {
         System.out.println("1. Show products list");
         System.out.println("2. Find product by name");
         System.out.println("3. Sort by price");
+        System.out.println("8. Filter by price");
         System.out.println("9. Return");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");

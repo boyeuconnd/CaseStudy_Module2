@@ -10,5 +10,6 @@ public class MenuChoose {
     static final int RETURN = 9;
     static final int EXIT = 0;
     static final int CRAWLER = 7;
+    static final int FILTER_PRICE = 8;
 
 }
