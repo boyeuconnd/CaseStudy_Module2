@@ -1,4 +1,4 @@
-package codegym.impl;
+package codegym.model.impl;
 
 public interface ProductStatic {
      int NEW =1;

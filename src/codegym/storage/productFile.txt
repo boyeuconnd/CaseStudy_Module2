@@ -3,17 +3,32 @@
 28999,iPhone 11 Pro Max 512GB,43990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-max-512gb
 28994,iPhone 11 Pro 64GB,27990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-64gb
 28995,iPhone 11 Pro 256GB,34190000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-256gb
-28996,iPhone 11 Pro 512GB,40990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-512gb
+28996,iPhone 11 Pro 512GB,40190000,1,https://fptshop.com.vn/dien-thoai/iphone-11-pro-512gb
 28991,iPhone 11 64GB,19990000,1,https://fptshop.com.vn/dien-thoai/iphone-11-64gb
 28992,iPhone 11 128GB,23690000,1,https://fptshop.com.vn/dien-thoai/iphone-11-128gb
 28993,iPhone 11 256GB,25690000,1,https://fptshop.com.vn/dien-thoai/iphone-11-256gb
-25219,iPhone Xs Max 64GB,26990000,1,https://fptshop.com.vn/dien-thoai/iphone-xs-max-64gb
+25219,iPhone Xs Max 64GB,23990000,1,https://fptshop.com.vn/dien-thoai/iphone-xs-max-64gb
 25220,iPhone Xs Max 256GB,32990000,1,https://fptshop.com.vn/dien-thoai/iphone-xs-max-256gb
-25221,iPhone XR 64GB,16990000,1,https://fptshop.com.vn/dien-thoai/iphone-xr-64gb
-22037,iPhone 8 Plus 64GB,15990000,1,https://fptshop.com.vn/dien-thoai/iphone-8-plus-64gb
+25221,iPhone XR 64GB,15990000,1,https://fptshop.com.vn/dien-thoai/iphone-xr-64gb
+22037,iPhone 8 Plus 64GB,14490000,1,https://fptshop.com.vn/dien-thoai/iphone-8-plus-64gb
 33074,iPhone 8 Plus 128GB,15990000,1,https://fptshop.com.vn/dien-thoai/iphone-8-plus-128gb
-10051,iPhone 7 Plus 32GB,12990000,1,https://fptshop.com.vn/dien-thoai/iphone-7-plus
+10051,iPhone 7 Plus 32GB,9990000,1,https://fptshop.com.vn/dien-thoai/iphone-7-plus
 8724,iPhone 7 32GB,7990000,1,https://fptshop.com.vn/dien-thoai/iphone-7
-19935,iPhone 6s Plus 32GB,8990000,1,https://fptshop.com.vn/dien-thoai/iphone-6s-plus-32gb
-9043,iPhone 6s Plus 128GB,9490000,1,https://fptshop.com.vn/dien-thoai/iphone-6s-plus-128gb
+19935,iPhone 6s Plus 32GB,7990000,1,https://fptshop.com.vn/dien-thoai/iphone-6s-plus-32gb
+9043,iPhone 6s Plus 128GB,8490000,1,https://fptshop.com.vn/dien-thoai/iphone-6s-plus-128gb
 32675,iPhone SE (2020) 64GB,12990000,1,https://fptshop.com.vn/dien-thoai/iphone-se-2
+27931,Samsung Galaxy Fold,50000000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-fold
+32265,Samsung Galaxy Z Flip,36000000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-z-flip
+32268,Samsung Galaxy S20 Ultra ,29990000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-s20-ultra
+32666,Samsung Galaxy S20+,23990000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-s20-plus
+28308,Samsung Galaxy Note 10+,22990000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-note-10-plus
+31524,Samsung Galaxy S20,21490000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-s20
+28016,Samsung Galaxy Note 10,18990000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-note-10
+25071,Samsung Galaxy S10,17990000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-s10
+30002,Samsung Galaxy Note 10 Lite ,13990000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-note-10-lite
+27693,Samsung Galaxy S10e,11490000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-s10e
+27912,Samsung Galaxy A80,11490000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-a80
+30004,Samsung Galaxy A71 ,10490000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-a71
+27806,Samsung Galaxy A70,8370000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-a70
+29702,Samsung Galaxy A51,7190000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-a51
+28435,Samsung Galaxy A50s,6990000,1,https://fptshop.com.vn/dien-thoai/samsung-galaxy-a50s

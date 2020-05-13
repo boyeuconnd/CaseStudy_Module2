@@ -1,4 +1,4 @@
-package codegym.user;
+package codegym.app_menu;
 
 import codegym.controller.ProductManager;
 import codegym.passwordManager.PasswordField;
@@ -8,18 +8,10 @@ import codegym.synchronization.Synchronize;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static codegym.impl.ProductStatic.DECREASING;
-import static codegym.impl.ProductStatic.INCREASING;
+import static codegym.model.impl.ProductStatic.DECREASING;
+import static codegym.model.impl.ProductStatic.INCREASING;
 
-public class UserDisplay {
-    private static final int SHOW_PRODUCT_LIST = 1;
-    private static final int ADD_PRODUCT = 4;
-    private static final int FIND_PRODUCT = 2;
-    private static final int DELETE_PRODUCT = 5;
-    private static final int SORT_BY_PRICE = 3;
-    private static final int EDIT_PRODUCT = 6;
-    private static final int RETURN = 9;
-    private static final int EXIT = 0;
+public class MenuManager {
     static Scanner scn = new Scanner(System.in);
     static ProductManager productManager = ProductManager.getInstance();
     static ProductList list = ProductList.getInstance();
@@ -30,8 +22,7 @@ public class UserDisplay {
         Synchronize sync = new Synchronize();
         sync.syncPull(list.getProductFile());
         try {
-//            chooseAccount();
-            accType=1;
+            chooseAccount();
             while (choice != 0) {
                 boolean isAdmin = accType == 1;
                 if(isAdmin){
@@ -40,14 +31,15 @@ public class UserDisplay {
                     showMenuCustomer();
                 }
                 choice = scn.nextInt();
+
                 switch (choice) {
-                    case SHOW_PRODUCT_LIST: { //Show product list
+                    case MenuChoose.SHOW_PRODUCT_LIST: {
                         if(!productManager.showProductList()){
                             System.out.println("List empty.");
                         }
                         break;
                     }
-                    case ADD_PRODUCT: {  //Add product
+                    case MenuChoose.ADD_PRODUCT: {
                         if(isAdmin){
                             System.out.println("Enter id,name,price,status,description space between any static");
                             scn.nextLine();
@@ -62,7 +54,7 @@ public class UserDisplay {
                         }
                         break;
                     }
-                    case FIND_PRODUCT: { //Find product
+                    case MenuChoose.FIND_PRODUCT: {
                         System.out.print("Enter product name: ");
                         scn.nextLine();
                         String findName = scn.nextLine();
@@ -74,7 +66,7 @@ public class UserDisplay {
                         }
                         break;
                     }
-                    case DELETE_PRODUCT: { //Delete method
+                    case MenuChoose.DELETE_PRODUCT: {
                         if(isAdmin){
                             System.out.print("Enter product name: ");
                             scn.nextLine();
@@ -90,7 +82,7 @@ public class UserDisplay {
                         }
                         break;
                     }
-                    case SORT_BY_PRICE: { //Sort by price
+                    case MenuChoose.SORT_BY_PRICE: {
                         System.out.println("Choose type of sort:");
                         System.out.println("1. Increasing");
                         System.out.println("2. Decreasing");
@@ -101,7 +93,7 @@ public class UserDisplay {
                         } else productManager.sortProductList(DECREASING);
                         break;
                     }
-                    case EDIT_PRODUCT: {  //Edit product static by ID
+                    case MenuChoose.EDIT_PRODUCT: {
                         if(isAdmin){
                             System.out.print("Enter product ID you want to edit: ");
                             scn.nextLine();
@@ -117,11 +109,11 @@ public class UserDisplay {
                         }
                         break;
                     }
-                    case RETURN: { //Return
+                    case MenuChoose.RETURN: {
                         chooseAccount();
                         break;
                     }
-                    case EXIT: { //Synchronize and Log out
+                    case MenuChoose.EXIT: {
                         System.out.println("Logging out...");
                         if(isAdmin){
                            sync.syncPush();
@@ -167,7 +159,7 @@ public class UserDisplay {
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
     }
-    private static void showWelcome(){
+    public static void showWelcome(){
         System.out.println("Welcome to LuxuryPhoneStore: Who are you?");
         System.out.println("1. Admin");
         System.out.println("2. Customer");

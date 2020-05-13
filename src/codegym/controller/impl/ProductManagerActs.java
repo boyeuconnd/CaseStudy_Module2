@@ -1,4 +1,4 @@
-package codegym.impl;
+package codegym.controller.impl;
 
 public interface ProductManagerActs {
     boolean showProductList();

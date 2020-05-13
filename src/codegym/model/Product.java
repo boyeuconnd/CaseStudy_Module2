@@ -1,6 +1,6 @@
 package codegym.model;
 
-import codegym.impl.ProductStatic;
+import codegym.model.impl.ProductStatic;
 
 public abstract class Product implements ProductStatic {
     private String id;

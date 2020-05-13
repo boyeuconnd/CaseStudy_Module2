@@ -1,6 +1,6 @@
 package codegym.controller;
 
-import codegym.impl.ProductManagerActs;
+import codegym.controller.impl.ProductManagerActs;
 import codegym.model.Product;
 import codegym.storage.ProductList;
 
@@ -92,20 +92,12 @@ public class ProductManager implements ProductManagerActs {
         if(keyword){
             Set<Integer> keys = sortList.keySet();
             for (Integer key: keys){
-                System.out.println("ID: "+sortList.get(key).getId()+
-                        " Name: "+sortList.get(key).getName()+
-                        " Price: "+key+
-                        " Status: "+sortList.get(key).getStatus()+
-                        " Description: "+sortList.get(key).getDescription());
+                PrintArray(sortList.get(key));
             }
         }else {
             Set<Integer> keys = sortList.descendingMap().keySet();
             for (Integer key: keys){
-                System.out.println("ID: "+sortList.get(key).getId()+
-                        " Name: "+sortList.get(key).getName()+
-                        " Price: "+key+
-                        " Status: "+sortList.get(key).getStatus()+
-                        " Description: "+sortList.get(key).getDescription());
+                PrintArray(sortList.get(key));
             }
         }
 
@@ -115,20 +107,22 @@ public class ProductManager implements ProductManagerActs {
         Iterator<Product> iterator = productsList.iterator();
         while (iterator.hasNext()){
             Product thisProduct = iterator.next();
-            System.out.println("ID: "+thisProduct.getId()+
-                    " Name: "+thisProduct.getName()+
-                    " Price: "+thisProduct.getPrice()+
-                    " Status: "+thisProduct.getStatus()+
-                    " Description: "+thisProduct.getDescription());
+            PrintArray(thisProduct);
+
         }
+    }
+    private void PrintArray(Product product){
+        System.out.printf("ID: %-5s |Name: %-24s |Price: %-9d |Status: %d |Description: %s \n",
+                product.getId(),
+                product.getName(),
+                product.getPrice(),
+                product.getStatus(),
+                product.getDescription());
+
     }
     private void ShowElement(Product product) {
         System.out.println("Product found.");
-        System.out.println("ID: "+product.getId()+
-                " Name: "+product.getName()+
-                " Price: "+product.getPrice()+
-                " Status: "+product.getStatus()+
-                " Description: "+product.getDescription());
+        PrintArray(product);
     }
     private void EditProductStatic(Product product) {
         System.out.print("Enter new Name:");
