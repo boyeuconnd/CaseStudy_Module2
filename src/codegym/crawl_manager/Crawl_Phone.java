@@ -15,6 +15,7 @@ public class Crawl_Phone implements I_Crawl {
     ProductList productList = ProductList.getInstance();
 
     private File productCrawl = productList.getProductFile();
+    private File crawlFile = new File("D:\\CodeGym\\MiddleTest_M2\\src\\codegym\\storage\\Crawl.txt");
 
     protected static Queue<String> matcherString = new LinkedList<>();
     @Override
@@ -44,6 +45,7 @@ public class Crawl_Phone implements I_Crawl {
         Thread samsung = new Samsung().threadSamsung;
         Thread xiaomi = new Xiaomi().threadXiaomi;
         Thread oppo = new Oppo().threadOppo;
+        Thread vsmart = new Vsmart().threadVsmart;
 //        final boolean isAllThreadsDead = samsung.getState() == Thread.State.TERMINATED
 //                && iphone.getState() == Thread.State.TERMINATED
 //                && xiaomi.getState() == Thread.State.TERMINATED
@@ -53,15 +55,18 @@ public class Crawl_Phone implements I_Crawl {
             iphone.join();
             samsung.start();
             samsung.join();
+            vsmart.start();
+            vsmart.join();
             xiaomi.start();
             xiaomi.join();
             oppo.start();
             oppo.join();
-            ExportToFile(productCrawl,matcherString);
+
         }catch (InterruptedException e){
             e.printStackTrace();
+        }finally {
+            ExportToFile(productCrawl,matcherString);
         }
-
     }
 
     private void ExportToFile(File source,Queue<String> queue){

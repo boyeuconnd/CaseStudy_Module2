@@ -3,7 +3,7 @@ package codegym.crawl_manager;
 public class Xiaomi extends Crawl_Phone implements Runnable {
     protected Xiaomi() {
     }
-    Thread threadXiaomi = new Thread(this::run);
+    Thread threadXiaomi = new Thread(this);
 
     @Override
     public void run() {

@@ -124,7 +124,7 @@ public class MenuManager {
                         System.out.print("Enter max price:");
                         int max = scn.nextInt();
                         boolean result = productManager.filterByPrice(min,max);
-                        if(!result) System.out.println("Valid price");
+                        if(!result) System.out.println("Valid price or no product with this price range");
                         break;
                     }
                     case MenuChoose.RETURN: {
@@ -154,28 +154,30 @@ public class MenuManager {
     }
 
     private static void showMenuAdmin() {
-        System.out.println("=====Menu=====");
-        System.out.println("1. Show products list");
-        System.out.println("2. Find product by name");
-        System.out.println("3. Sort by price");
-        System.out.println("4. Add product");
-        System.out.println("5. Delete product by name");
-        System.out.println("6. Edit product static");
-        System.out.println("7. Crawler");
-        System.out.println("8. Filter by price");
-        System.out.println("9. Return");
-        System.out.println("0. Synchronize and Exit");
+        System.out.println("============Menu============");
+        System.out.println("|1. Show products list     |");
+        System.out.println("|2. Find product by name   |");
+        System.out.println("|3. Sort by price          |");
+        System.out.println("|4. Add product            |");
+        System.out.println("|5. Delete product by name |");
+        System.out.println("|6. Edit product static    |");
+        System.out.println("|7. Crawler                |");
+        System.out.println("|8. Filter by price        |");
+        System.out.println("|9. Return                 |");
+        System.out.println("|0. Synchronize and Exit   |");
+        System.out.println("============================");
         System.out.print("Enter your choice: ");
     }
 
     private static void showMenuCustomer() {
-        System.out.println("=====Menu=====");
-        System.out.println("1. Show products list");
-        System.out.println("2. Find product by name");
-        System.out.println("3. Sort by price");
-        System.out.println("8. Filter by price");
-        System.out.println("9. Return");
-        System.out.println("0. Exit");
+        System.out.println("============Menu============");
+        System.out.println("|1. Show products list     |");
+        System.out.println("|2. Find product by name   |");
+        System.out.println("|3. Sort by price          |");
+        System.out.println("|8. Filter by price        |");
+        System.out.println("|9. Return                 |");
+        System.out.println("|0. Exit                   |");
+        System.out.println("============================");
         System.out.print("Enter your choice: ");
     }
     public static void showWelcome(){

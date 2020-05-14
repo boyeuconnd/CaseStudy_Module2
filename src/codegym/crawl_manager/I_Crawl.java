@@ -8,6 +8,7 @@ public interface I_Crawl {
     String FPT_SAMSUNG_2 = "https://fptshop.com.vn/dien-thoai/samsung?sort=gia-cao-den-thap&trang=2";
     String FPT_OPPO ="https://fptshop.com.vn/dien-thoai/oppo?sort=gia-cao-den-thap";
     String FPT_XIAOMI ="https://fptshop.com.vn/dien-thoai/xiaomi?sort=gia-cao-den-thapp";
+    String FPT_VSMART ="https://fptshop.com.vn/dien-thoai/vsmart";
 
     String NORMAL_REGEX = "'Home','(.*)',(.*?),(.*?),0000,(.*)href=\"(.*)\" title=";
     String SAMSUNG_REGEX = "'Home','(S.*)',(.*?),(.*?),0000,(.*)href=\"(.*)\" title=";
