@@ -2,7 +2,6 @@ package codegym.app_menu;
 
 import codegym.controller.CrawlerFacade;
 import codegym.controller.ProductManager;
-import codegym.crawl_manager.Crawl_Phone;
 import codegym.passwordManager.PasswordField;
 import codegym.storage.ProductList;
 import codegym.synchronization.Synchronize;
@@ -24,9 +23,9 @@ public class MenuManager {
         Synchronize sync = new Synchronize();
         sync.syncPull(list.getProductFile());
         try {
-            chooseAccount();
-//            accType=1;
-            while (choice != 0) {
+//            chooseAccount();
+            accType=1;
+            while (true) {
                 boolean isAdmin = accType == 1;
                 if(isAdmin){
                     showMenuAdmin();
@@ -61,10 +60,8 @@ public class MenuManager {
                         System.out.print("Enter product name: ");
                         scn.nextLine();
                         String findName = scn.nextLine();
-                        boolean result = productManager.findProduct(findName);
-                        if(result){
-
-                        }else {
+                        boolean result = productManager.regexSearchProduct(findName);
+                        if(!result){
                             System.out.println("Product "+findName+" not found, try again.");
                         }
                         break;
@@ -150,10 +147,8 @@ public class MenuManager {
             }
         } catch (InputMismatchException e) {
             System.err.println("Enter values is words:");
-            start();
         } catch (NumberFormatException nfe) {
             System.err.println("Enter numbers instead of words:");
-
         }
 
     }
@@ -194,6 +189,7 @@ public class MenuManager {
         PasswordField password = PasswordField.getInstance();
         showWelcome();
         accType = scn.nextInt();
+        scn.reset();
         scn.nextLine();
         if(accType==1){
             String uncheckPass = password.enterPassword();

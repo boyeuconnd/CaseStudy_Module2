@@ -1,14 +1,16 @@
 package codegym.controller;
 
+import codegym.controller.impl.ISearch;
 import codegym.controller.impl.I_Filter;
 import codegym.controller.impl.ProductManagerActs;
+import codegym.controller.regexsearch.RegexSearch;
 import codegym.model.Product;
 import codegym.storage.ProductList;
 
 
 import java.util.*;
 
-public class ProductManager implements ProductManagerActs, I_Filter {
+public class ProductManager implements ProductManagerActs, I_Filter, ISearch {
     Scanner scn = new Scanner(System.in);
     ProductList listInstance = ProductList.getInstance();
     ArrayList<Product> productsList = listInstance.getArrayList();
@@ -122,7 +124,6 @@ public class ProductManager implements ProductManagerActs, I_Filter {
 
     }
     private void ShowElement(Product product) {
-        System.out.println("Product found.");
         PrintArray(product);
     }
     private void EditProductStatic(Product product) {
@@ -177,5 +178,18 @@ public class ProductManager implements ProductManagerActs, I_Filter {
                 return true;
             }
         }
+    }
+
+    @Override
+    public boolean regexSearchProduct(String name) {
+        boolean result = false;
+        RegexSearch regexSearch = new RegexSearch();
+        for (Product product: productsList) {
+            if(regexSearch.regexSearch(name,product.getName())){
+                ShowElement(product);
+                result = true;
+            }
+        }
+        return result;
     }
 }
