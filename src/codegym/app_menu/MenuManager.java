@@ -23,8 +23,8 @@ public class MenuManager {
         Synchronize sync = new Synchronize();
         sync.syncPull(list.getProductFile());
         try {
-//            chooseAccount();
-            accType=1;
+            chooseAccount();
+//            accType=1;
             while (true) {
                 boolean isAdmin = accType == 1;
                 if(isAdmin){

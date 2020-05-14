@@ -1,6 +1,4 @@
 package codegym.user;
-
-
 import codegym.app_menu.MenuManager;
 
 public class Client {
