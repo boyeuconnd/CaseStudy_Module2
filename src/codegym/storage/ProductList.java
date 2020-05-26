@@ -26,6 +26,6 @@ public class ProductList extends Product  {
         return back_up;
     }
 
-    private File productFile = new File("D:\\CodeGym\\MiddleTest_M2\\src\\codegym\\storage\\productFile.txt");
-    private File back_up = new File("D:\\CodeGym\\MiddleTest_M2\\src\\codegym\\storage\\back_up.txt");
+    private File productFile = new File("D:\\CodeGym\\CaseStudy_Module2\\src\\codegym\\storage\\productFile.txt");
+    private File back_up = new File("D:\\CodeGym\\CaseStudy_Module2\\src\\codegym\\storage\\back_up.txt");
 }

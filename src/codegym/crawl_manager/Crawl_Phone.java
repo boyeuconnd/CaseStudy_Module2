@@ -1,6 +1,5 @@
 package codegym.crawl_manager;
 
-import codegym.model.Product;
 import codegym.storage.ProductList;
 
 import java.io.*;
@@ -15,7 +14,7 @@ public class Crawl_Phone implements I_Crawl {
     ProductList productList = ProductList.getInstance();
 
     private File productCrawl = productList.getProductFile();
-    private File crawlFile = new File("D:\\CodeGym\\MiddleTest_M2\\src\\codegym\\storage\\Crawl.txt");
+    private File crawlFile = new File("D:\\CodeGym\\CaseStudy_Module2\\src\\codegym\\storage\\Crawl.txt");
 
     protected static Queue<String> matcherString = new LinkedList<>();
     @Override
